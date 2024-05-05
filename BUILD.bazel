@@ -1,0 +1,26 @@
+cc_import(
+    name = "eigen_import",
+    hdrs = glob(["Eigen/**"]),
+)
+
+cc_library(
+	name = "eigen_lib",
+	deps = ["eigen_import"],
+)
+
+cc_binary(
+    name = "test",
+    srcs = [
+        "src/test/testEigen.cpp",
+    ],
+    deps = [":eigen_lib"],
+)
+
+cc_binary(
+    name = "ant_1d",
+    srcs = [
+        "src/ant_1d.cpp",
+    ],
+    deps = [":eigen_lib"],
+)
+

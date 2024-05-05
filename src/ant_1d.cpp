@@ -14,7 +14,7 @@ int main() {
 	H_y.setZero();
 
 	const unsigned int maxTime = 10000;
-	const unsigned int probeSpacing = 100;
+	const unsigned int probeSpacing = 10;
 	for (unsigned int qTime = 0; qTime < maxTime; ++qTime) {
 		for (unsigned int mm = 0; mm < cellCount-1; ++mm) {
 			H_y(mm) = H_y(mm) + (E_z(mm+1) - E_z(mm)) / fsImp;

@@ -2,10 +2,10 @@
 #include <cmath>
 #include "Eigen/Dense"
 
-#define FINE 8
+#define FINE 10
 
 int main() {
-	const unsigned int cellCount = 200;
+	const unsigned int cellCount = 2 << FINE;
 	const double imp0 = 377.0;
 
 	Eigen::VectorXd E_z(cellCount);

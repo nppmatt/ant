@@ -14,6 +14,7 @@ int main() {
 	H_y.setZero();
 
 	const unsigned int maxTime = 10000;
+	const unsigned int snapshotSpacing = 10;
 	const unsigned int probeSpacing = 10;
 	for (unsigned int qTime = 0; qTime < maxTime; ++qTime) {
 		for (unsigned int mm = 0; mm < cellCount-1; ++mm) {
@@ -24,10 +25,15 @@ int main() {
 			E_z(mm) = E_z(mm) + (H_y(mm) - H_y(mm-1)) * fsImp;
 		}
 
+		/* Additive source. */
 		E_z(50) += exp( -(qTime - 30.0) * (qTime - 30.0) / 100.0 );
 
-		for (unsigned int probe = 0; probe < cellCount; probe += probeSpacing) {
-			std::cout << E_z(probe) << ",";
+		/* Temporal coarsening after solving. */
+		if (qTime % snapshotSpacing == 0) {
+			/* Spatial coarsening after solving. */
+			for (unsigned int probe = 0; probe < cellCount; probe += probeSpacing) {
+				std::cout << E_z(probe) << ",";
+			}
 		}
 		std::cout << std::endl;
 	}

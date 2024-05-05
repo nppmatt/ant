@@ -24,3 +24,11 @@ cc_binary(
     deps = [":eigen_lib"],
 )
 
+cc_binary(
+    name = "ant_coarse",
+    srcs = [
+        "src/ant_coarse.cpp",
+    ],
+    deps = [":eigen_lib"],
+)
+

@@ -34,7 +34,7 @@ int main() {
 		}
 
 		/* Additive source. */
-		E_z(50) += exp( -(qTime - 30.0) * (qTime - 30.0) / 100.0 );
+		E_z(512) += exp( -(qTime - 30.0) * (qTime - 30.0) / 100.0 );
 
 		/* Temporal coarsening after solving. */
 		if (qTime % snapshotSpacing == 0) {

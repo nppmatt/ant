@@ -24,7 +24,10 @@ int main() {
 		}
 
 		E_z(0) = exp( -(qTime - 30.0) * (qTime - 30.0) / 100.0 );
-		std::cout << E_z << std::endl;
+
+		for (unsigned int probe = 0; probe < cellCount; probe += 10) {
+			std::cout << E_z(probe) << "," << std::endl;
+		}
 	}
 
 	return 0;

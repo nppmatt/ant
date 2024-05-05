@@ -32,3 +32,11 @@ cc_binary(
     deps = [":eigen_lib"],
 )
 
+cc_binary(
+    name = "ant_bc",
+    srcs = [
+        "src/ant_bc.cpp",
+    ],
+    deps = [":eigen_lib"],
+)
+

@@ -5,7 +5,7 @@
 #define FINE 8
 
 int main() {
-	const unsigned int cellCount = 2 << FINE;
+	const unsigned int cellCount = 200;
 	const double imp0 = 377.0;
 
 	Eigen::VectorXd E_z(cellCount);

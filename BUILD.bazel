@@ -40,3 +40,19 @@ cc_binary(
     deps = [":eigen_lib"],
 )
 
+cc_binary(
+    name = "ant_directional",
+    srcs = [
+        "src/ant_directional.cpp",
+    ],
+    deps = [":eigen_lib"],
+)
+
+cc_binary(
+    name = "ant_mathc_cos",
+    srcs = [
+        "src/ant_mathc_cos.cpp",
+    ],
+    deps = [":eigen_lib"],
+)
+

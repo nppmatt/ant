@@ -1,7 +1,3 @@
-/* ant/src/ant.cpp */
-
-#include "include/constants.hpp"
-
 #include <iostream>
 #include <cmath>
 #include "Eigen/Dense"
@@ -11,7 +7,11 @@
 
 int main() {
 	constexpr unsigned int cellCount = 2 << FINE;
+	constexpr double fsImp = 376.730313668; // vacuum impedance
 	constexpr double courant = 1.0;
+	constexpr double pi = 3.14159265358979323846;
+	constexpr double mu_0 = 1.25663706212e-6; // vacuum magnetic permeability
+	constexpr double epsilon_0 = 8.8541878128e-12; // vacuum magnetic permittivity
 	constexpr double waveProp = sqrt(mu_0 * epsilon_0);
 
 	Eigen::VectorXd E_z(cellCount);
@@ -58,5 +58,3 @@ int main() {
 
 	return 0;
 }
-
-/* ant/src/ant.cpp */

@@ -6,8 +6,9 @@ options=( "$BIN_DIR"/* )
 select option in "${options[@]}" "cancel"; do
 	case $option in
 		"cancel")
-			break
 			echo "Cancelled."
+			exit 1
+			break
 			;;
 		*)
 			echo "Generating from $option"
@@ -17,4 +18,5 @@ select option in "${options[@]}" "cancel"; do
 			;;
 	esac
 done
+exit 0
 

@@ -85,3 +85,14 @@ cc_binary(
     ],
 )
 
+cc_binary(
+    name = "ant_fix_dir",
+    srcs = [
+        "src/ant_fix_dir.cpp",
+    ],
+    deps = [
+    	":eigen_lib",
+	":ant_lib",
+    ],
+)
+

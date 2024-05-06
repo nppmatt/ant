@@ -13,7 +13,8 @@ def generate_imshow(args):
     df = pd.read_csv(os.path.join(input_dir, filename))
     # Convert DataFrame to a 2D array for imshow
     data = df.values
-    plt.imshow(data, aspect='auto', cmap='viridis', vmin=-2, vmax=2)  # You can change the colormap 'viridis' to others like 'gray', etc.
+    #plt.imshow(data, aspect='auto', cmap='viridis', vmin=-2, vmax=2)  # You can change the colormap 'viridis' to others like 'gray', etc.
+    plt.imshow(data, aspect='auto', cmap='gray')  # You can change the colormap 'viridis' to others like 'gray', etc.
     plt.colorbar()  # Add a color bar to the side
     plt.title(f'Heatmap - {output_filename}')
     plt.xlabel('X coordinate')

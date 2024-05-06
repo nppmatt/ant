@@ -8,7 +8,7 @@ from multiprocessing import Pool
 def generate_imshow(args):
     filename, input_dir, output_dir = args
     # Remove the '.csv' extension from the filename before saving
-    output_filename = filename[:-5] + '.png'  # Strips the last 4 characters '.csv' and adds '.png'
+    output_filename = filename[:-4] + '.png'  # Strips the last 4 characters '.csv' and adds '.png'
     # Load CSV as a DataFrame
     df = pd.read_csv(os.path.join(input_dir, filename))
     # Convert DataFrame to a 2D array for imshow

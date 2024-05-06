@@ -18,8 +18,7 @@
 /* 2D FDTD Simulation, aka a TM^z simulation (Transverse Magnetic-z) */
 int main() {
 	constexpr unsigned int gridLength = 2 << FINE;
-	//constexpr double courant = 1.0 / sqrt(2.0);
-	constexpr double courant = 1.0;
+	constexpr double courant = 1.0 / sqrt(2.0);
 	constexpr double waveProp = sqrt(mu_0 * epsilon_0);
 
 	/* The fields we would like to update in a staggered manner (Yee). */
@@ -65,8 +64,10 @@ int main() {
 	}	
 
 	/* More simulation parameters. */
-	constexpr unsigned int src_x = 500;
-	constexpr unsigned int src_y = 500;
+	constexpr unsigned int src1_x = 500;
+	constexpr unsigned int src1_y = 500;
+	constexpr unsigned int src2_x = 500;
+	constexpr unsigned int src2_y = 500;
 	constexpr unsigned int maxTime = 10000;
 	constexpr unsigned int snapshotSpacing = 10;
 
@@ -124,7 +125,8 @@ int main() {
 
 		/* Additive source. */
 		//E_z(src_x, src_y) += sin_table_0_00001_LERP(2 * pi / WAVE_STEPS * (courant * timeStep - waveProp * sourcePos));
-		E_z(src_x, src_y) += sin_table_0_00001_LERP(2 * pi / WAVE_STEPS * (courant * timeStep - waveProp));
+		E_z(src1_x, src1_y) += sin_table_0_00001_LERP(2 * pi / WAVE_STEPS * (courant * timeStep - waveProp));
+		E_z(src2_x, src2_y) += sin_table_0_00001_LERP(2 * pi / WAVE_STEPS * (courant * timeStep - waveProp));
 
 		/* Take snapshot with temporal coarsening after solving. */
 		if (timeStep % snapshotSpacing == 0) {

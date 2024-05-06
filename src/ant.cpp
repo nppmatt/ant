@@ -1,6 +1,6 @@
 /* ant/src/ant.cpp */
 
-#include "include/numerics.hpp"
+#include "include/ant.hpp"
 #include "Eigen/Dense"
 
 #include <iostream>
@@ -32,7 +32,9 @@ int main() {
 			H_y(mm) = H_y(mm) + (E_z(mm+1) - E_z(mm)) / fsImp;
 		}
 
-		/* Correct H next to TFSF BC of source to enforce directionality. */
+		/* Correct H next to TFSF BC of source to enforce directionality.
+		 * At non-zero Courant, simply zeroing out field will be non-conservative.
+		 * */
 		H_y(sourcePos-1) = 0;
 
 		/* Left absorbing boundary condition for E. */
@@ -44,7 +46,7 @@ int main() {
 		}
 
 		/* Additive source. */
-		E_z(sourcePos) += sin(2 * pi / WAVE_STEPS * (courant * timeStep - waveProp * sourcePos));
+		E_z(sourcePos) += sin_table_0_0001_LERP(2 * pi / WAVE_STEPS * (courant * timeStep - waveProp * sourcePos));
 
 		/* Temporal coarsening after solving. */
 		if (timeStep % snapshotSpacing == 0) {

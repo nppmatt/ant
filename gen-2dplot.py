@@ -13,11 +13,10 @@ def generate_imshow(args):
     df = pd.read_csv(os.path.join(input_dir, filename))
     # Convert DataFrame to a 2D array for imshow
     data = df.values
-    plt.imshow(data, aspect='auto', cmap='gray', vmin=-0.32, vmax=0.32)  # You can change the colormap 'viridis' to others like 'gray', etc.
-    plt.tick_params(top=True, labeltop=True, bottom=False, labelbottom=False)
+    plt.imshow(data, aspect='auto', cmap='gray', vmin=-0.25, vmax=0.25)  # You can change the colormap 'viridis' to others like 'gray', etc.
     plt.xlabel('X')
     plt.ylabel('Y')
-    plt.savefig(f'{output_dir}/{output_filename}')
+    plt.savefig(f'{output_dir}/{output_filename}', dpi=100)
     plt.clf()  # Clear the figure after saving
 
 if __name__ == '__main__':

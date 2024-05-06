@@ -64,10 +64,14 @@ int main() {
 	}	
 
 	/* More simulation parameters. */
-	constexpr unsigned int src1_x = 400;
-	constexpr unsigned int src1_y = 1022;
-	constexpr unsigned int src2_x = 600;
-	constexpr unsigned int src2_y = 1022;
+	constexpr unsigned int src1_x = 2;
+	constexpr unsigned int src1_y = 400;
+	constexpr unsigned int src2_x = 2;
+	constexpr unsigned int src2_y = 600;
+	constexpr unsigned int src3_x = 2;
+	constexpr unsigned int src3_y = 200;
+	constexpr unsigned int src4_x = 2;
+	constexpr unsigned int src4_y = 800;
 	constexpr unsigned int maxTime = 10000;
 	constexpr unsigned int snapshotSpacing = 10;
 
@@ -127,6 +131,8 @@ int main() {
 		//E_z(src_x, src_y) += sin_table_0_00001_LERP(2 * pi / WAVE_STEPS * (courant * timeStep - waveProp * sourcePos));
 		E_z(src1_x, src1_y) += sin_table_0_00001_LERP(2 * pi / WAVE_STEPS * (courant * timeStep - waveProp));
 		E_z(src2_x, src2_y) += sin_table_0_00001_LERP(2 * pi / WAVE_STEPS * (courant * timeStep - waveProp));
+		E_z(src3_x, src3_y) += sin_table_0_00001_LERP(2 * pi / WAVE_STEPS * (courant * timeStep - waveProp));
+		E_z(src4_x, src4_y) += sin_table_0_00001_LERP(2 * pi / WAVE_STEPS * (courant * timeStep - waveProp));
 
 		/* Take snapshot with temporal coarsening after solving. */
 		if (timeStep % snapshotSpacing == 0) {

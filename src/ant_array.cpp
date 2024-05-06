@@ -64,10 +64,10 @@ int main() {
 	}	
 
 	/* More simulation parameters. */
-	constexpr unsigned int src1_x = 400;
-	constexpr unsigned int src1_y = 1022;
-	constexpr unsigned int src2_x = 600;
-	constexpr unsigned int src2_y = 1022;
+	constexpr unsigned int src1_x = 2;
+	constexpr unsigned int src1_y = 400;
+	constexpr unsigned int src2_x = 2;
+	constexpr unsigned int src2_y = 600;
 	constexpr unsigned int maxTime = 10000;
 	constexpr unsigned int snapshotSpacing = 10;
 

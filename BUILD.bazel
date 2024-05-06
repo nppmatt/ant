@@ -171,3 +171,16 @@ cc_binary(
     linkopts = ["-lgomp"],
 )
 
+cc_binary(
+    name = "ant_array4",
+    srcs = [
+        "src/ant_array4.cpp",
+    ],
+    deps = [
+    	":eigen_lib",
+    	":fmt_lib",
+	":ant_lib",
+    ],
+    linkopts = ["-lgomp"],
+)
+

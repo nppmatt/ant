@@ -74,3 +74,14 @@ cc_binary(
     ],
 )
 
+cc_binary(
+    name = "ant_mathc_sin",
+    srcs = [
+        "src/ant_mathc_sin.cpp",
+    ],
+    deps = [
+    	":eigen_lib",
+	":ant_lib",
+    ],
+)
+

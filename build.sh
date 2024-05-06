@@ -7,4 +7,5 @@ bazel build //:ant_bc --config=clang_conf
 bazel build //:ant_directional --config=clang_conf
 bazel build //:ant_mathc_cos --config=clang_conf
 bazel build //:ant_infra_test --config=clang_conf
+bazel build //:ant_mathc_sin --config=clang_conf
 

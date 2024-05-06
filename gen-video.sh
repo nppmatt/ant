@@ -3,6 +3,9 @@
 PLOT_DIR=plot-export
 VIDEO_DIR=video-export
 
+echo "Generating 30fps video."
+ffmpeg -hide_banner -loglevel error -r 30 -i $PLOT_DIR/plot-%d.png -c:v libx264 -pix_fmt yuv420p -y $VIDEO_DIR/result30.mp4
+
 echo "Generating 60fps video."
 ffmpeg -hide_banner -loglevel error -r 60 -i $PLOT_DIR/plot-%d.png -c:v libx264 -pix_fmt yuv420p -y $VIDEO_DIR/result60.mp4
 

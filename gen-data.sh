@@ -1,8 +1,18 @@
 #!/usr/bin/env bash
 
+shopt -s nullglob extglob
+
 BIN_DIR=bazel-bin
 OUT_DIR=out
-options=( "$BIN_DIR"/* )
+
+# Collect files without an extension
+options=()
+for file in "$BIN_DIR"/*; do
+	if [[ -f "$file" && ! "$file" == *.* && ! "$file" == "$BIN_DIR"/.* ]]; then
+		options+=("$file")
+	fi
+done
+
 select option in "${options[@]}" "cancel"; do
 	case $option in
 		"cancel")

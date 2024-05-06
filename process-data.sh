@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
+echo "==============================" >> joblog
 echo "$(date) Job Selection" >> joblog
 ./gen-data.sh
 
 if [ $? -eq 1 ]; then
-	echo "Job selection cancellation received, stopping data processing."
+	echo "Job selection cancellation received, stopping data processing." >> joblog
 	exit 0;
 fi
 

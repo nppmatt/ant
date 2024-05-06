@@ -8,6 +8,13 @@ cc_library(
 	deps = ["eigen_import"],
 )
 
+cc_library(
+	name = "ant_lib",
+	hdrs = [
+		"src/include/numerics.hpp",
+	],
+)
+
 cc_binary(
     name = "test",
     srcs = [
@@ -54,5 +61,16 @@ cc_binary(
         "src/ant_mathc_cos.cpp",
     ],
     deps = [":eigen_lib"],
+)
+
+cc_binary(
+    name = "ant_infra_test",
+    srcs = [
+        "src/ant_infra_test.cpp",
+    ],
+    deps = [
+    	":eigen_lib",
+	":ant_lib",
+    ],
 )
 

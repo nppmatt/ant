@@ -1,10 +1,10 @@
 /* ant/src/ant.cpp */
 
-#include "include/numeric.hpp"
+#include "include/numerics.hpp"
+#include "Eigen/Dense"
 
 #include <iostream>
 #include <cmath>
-#include "Eigen/Dense"
 
 #define FINE 10
 #define WAVE_STEPS 40

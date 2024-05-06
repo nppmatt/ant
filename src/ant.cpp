@@ -33,7 +33,7 @@ int main() {
 		}
 
 		/* Correct H next to TFSF BC of source to enforce directionality. */
-		H_y(sourcePos-1) -= cos(2 * pi / WAVE_STEPS * (courant * timeStep - waveProp * sourcePos));
+		H_y(sourcePos-1) = 0;
 
 		/* Left absorbing boundary condition for E. */
 		E_z(0) = E_z(1);

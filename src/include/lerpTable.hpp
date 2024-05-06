@@ -14,7 +14,7 @@ double absd(double a) { *((unsigned long *)&a) &= ~(1UL << 63); return a; }
 double sin_table_0_0001_LERP(double x)
 {
     x = absd(x);
-    x = modd(x, pi);
+    x = modd(x, pi2);
     double i = x * 1000.0;
     int index = (int)i;
     return lerp(i - index,        /* weight      */
@@ -26,7 +26,7 @@ double sin_table_0_0001_LERP(double x)
 double sin_table_0_00001_LERP(double x)
 {
     x = absd(x);
-    x = modd(x, pi);
+    x = modd(x, pi2);
     double i = x * 10000.0;
     int index = (int)i;
     return lerp(i - index,        /* weight      */

@@ -13,4 +13,5 @@ bazel build //:ant_lerp3 --config=clang_conf
 bazel build //:ant_lerp4 --config=clang_conf
 bazel build //:ant_2d --config=clang_conf
 bazel build //:ant_2d_bc --config=clang_conf
+bazel build //:ant_array --config=clang_conf
 

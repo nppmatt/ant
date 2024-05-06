@@ -16,7 +16,7 @@ def generate_imshow(args):
     plt.imshow(data, aspect='auto', cmap='gray', vmin=-0.25, vmax=0.25)  # You can change the colormap 'viridis' to others like 'gray', etc.
     plt.xlabel('X')
     plt.ylabel('Y')
-    plt.savefig(f'{output_dir}/{output_filename}', dpi=100)
+    plt.savefig(f'{output_dir}/{output_filename}', dpi=200)
     plt.clf()  # Clear the figure after saving
 
 if __name__ == '__main__':

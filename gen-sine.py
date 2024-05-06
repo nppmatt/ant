@@ -22,6 +22,6 @@ if __name__ == '__main__':
     #main(open("costable_0_1.h", "w"), 0.1, "costable_0_1")
     #main(open("costable_0_01.h", "w"), 0.01, "costable_0_01")
     #main(open("costable_0_001.h", "w"), 0.001, "costable_0_001")
-    main(open(f"{includeDir}sintable_0_0001.h", "w"), 0.0001, "sintable_0_0001")
-    main(open(f"{includeDir}sintable_0_00001.h", "w"), 0.00001, "sintable_0_00001")
+    main(open(f"{includeDir}sintable_0_0001.hpp", "w"), 0.0001, "sintable_0_0001")
+    main(open(f"{includeDir}sintable_0_00001.hpp", "w"), 0.00001, "sintable_0_00001")
 

@@ -13,8 +13,8 @@ cc_library(
 	hdrs = [
 		"src/include/ant.hpp",
 		"src/include/numerics.hpp",
-		"src/include/sintable_0_0001.h",
-		"src/include/sintable_0_00001.h",
+		"src/include/sintable_0_0001.hpp",
+		"src/include/sintable_0_00001.hpp",
 		"src/include/lerpTable.hpp",
 	],
 )

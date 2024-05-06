@@ -13,27 +13,27 @@
 
 /* 2D FDTD Simulation, aka a TM^z simulation (Transverse Magnetic-z) */
 int main() {
+	std::cout << "a" << std::endl;
 	constexpr unsigned int gridLength = 2 << FINE;
 	constexpr double courant = 1.0 / sqrt(2.0);
 	constexpr double waveProp = sqrt(mu_0 * epsilon_0);
 
+	std::cout << "b" << std::endl;
 	/* The fields we would like to update in a staggered manner (Yee). */
-	Eigen::Matrix2d E_z(gridLength, gridLength);
-	Eigen::Matrix2d H_x(gridLength, gridLength-1);
-	Eigen::Matrix2d H_y(gridLength-1, gridLength);
-	E_z.setZero();
-	H_x.setZero();
-	H_y.setZero();
+	Eigen::MatrixXd E_z(gridLength, gridLength);
+	Eigen::MatrixXd H_x(gridLength, gridLength-1);
+	Eigen::MatrixXd H_y(gridLength-1, gridLength);
+	std::cout << "c" << std::endl;
 
 	/* Scalar fields that transfer field quanta to their transverse pair (torque-y).
 	 * Subscript convention is to indicate source field first and destination after.
 	 * */
-	Eigen::Matrix2d C_eze(gridLength, gridLength);
-	Eigen::Matrix2d C_ezh(gridLength, gridLength);
-	Eigen::Matrix2d C_hxe(gridLength, gridLength-1);
-	Eigen::Matrix2d C_hxh(gridLength, gridLength-1);
-	Eigen::Matrix2d C_hye(gridLength-1, gridLength);
-	Eigen::Matrix2d C_hyh(gridLength-1, gridLength);
+	Eigen::MatrixXd C_eze(gridLength, gridLength);
+	Eigen::MatrixXd C_ezh(gridLength, gridLength);
+	Eigen::MatrixXd C_hxe(gridLength, gridLength-1);
+	Eigen::MatrixXd C_hxh(gridLength, gridLength-1);
+	Eigen::MatrixXd C_hye(gridLength-1, gridLength);
+	Eigen::MatrixXd C_hyh(gridLength-1, gridLength);
 
 	/* E-field update coefficients.
 	 * All coefficients make a free-space/vacuum assumption.

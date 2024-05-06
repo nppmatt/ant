@@ -2,6 +2,7 @@
 
 echo "==============================" >> joblog
 echo "$(date) Job Selection" >> joblog
+rm out/*
 ./gen-data.sh
 
 if [ $? -eq 1 ]; then

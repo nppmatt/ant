@@ -2,28 +2,28 @@
 
 #include "include/ant.hpp"
 #include "Eigen/Dense"
+
+#define FMT_HEADER_ONLY
 #include "fmt/core.h"
+#include "fmt/format.h"
 
 #include <cmath>
 #include <iostream>
 #include <fstream>
 
-#define FINE 10
-#define WAVE_STEPS 40
+#define FINE 9
+#define WAVE_STEPS 20
 
 /* 2D FDTD Simulation, aka a TM^z simulation (Transverse Magnetic-z) */
 int main() {
-	std::cout << "a" << std::endl;
 	constexpr unsigned int gridLength = 2 << FINE;
 	constexpr double courant = 1.0 / sqrt(2.0);
 	constexpr double waveProp = sqrt(mu_0 * epsilon_0);
 
-	std::cout << "b" << std::endl;
 	/* The fields we would like to update in a staggered manner (Yee). */
 	Eigen::MatrixXd E_z(gridLength, gridLength);
 	Eigen::MatrixXd H_x(gridLength, gridLength-1);
 	Eigen::MatrixXd H_y(gridLength-1, gridLength);
-	std::cout << "c" << std::endl;
 
 	/* Scalar fields that transfer field quanta to their transverse pair (torque-y).
 	 * Subscript convention is to indicate source field first and destination after.
@@ -63,7 +63,7 @@ int main() {
 	constexpr unsigned int src_x = 500;
 	constexpr unsigned int src_y = 500;
 	constexpr unsigned int maxTime = 10000;
-	constexpr unsigned int snapshotSpacing = 10;
+	constexpr unsigned int snapshotSpacing = 100;
 
 	/* For snapshots. */
 	const static Eigen::IOFormat CSVFormat(Eigen::StreamPrecision, Eigen::DontAlignCols, ",", "\n");

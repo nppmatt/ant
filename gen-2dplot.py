@@ -13,7 +13,7 @@ def generate_imshow(args):
     df = pd.read_csv(os.path.join(input_dir, filename))
     # Convert DataFrame to a 2D array for imshow
     data = df.values
-    plt.imshow(data, aspect='auto', cmap='viridis')  # You can change the colormap 'viridis' to others like 'gray', etc.
+    plt.imshow(data, aspect='auto', cmap='viridis', vmin=-2, vmax=2)  # You can change the colormap 'viridis' to others like 'gray', etc.
     plt.colorbar()  # Add a color bar to the side
     plt.title(f'Heatmap - {output_filename}')
     plt.xlabel('X coordinate')
@@ -24,7 +24,7 @@ def generate_imshow(args):
 if __name__ == '__main__':
     input_dir = 'out'  # Directory containing the CSV files
     output_dir = 'plot-export'
-    
+
     # Ensure output directory exists
     os.makedirs(output_dir, exist_ok=True)
 
@@ -37,5 +37,4 @@ if __name__ == '__main__':
     # Parallelize the generation of imshow plots
     with Pool() as pool:
         pool.map(generate_imshow, args_list)
-
 

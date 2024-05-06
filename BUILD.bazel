@@ -142,5 +142,6 @@ cc_binary(
     	":fmt_lib",
 	":ant_lib",
     ],
+    linkopts = ["-lgomp"],
 )
 

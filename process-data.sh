@@ -12,7 +12,7 @@ fi
 
 echo "$(date) Generating data plots." >> joblog
 rm plot-export/*
-./gen-plot.py
+./gen-2dplot.py
 echo "$(date) Finished plotting." >> joblog
 
 echo "$(date) Generating videos." >> joblog

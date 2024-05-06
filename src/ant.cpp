@@ -8,6 +8,7 @@
 #include "fmt/format.h"
 
 #include <cmath>
+#include <omp.h>
 #include <iostream>
 #include <fstream>
 
@@ -38,6 +39,7 @@ int main() {
 	/* E-field update coefficients.
 	 * All coefficients make a free-space/vacuum assumption.
 	 * */
+	#pragma omp parallel for
 	for (unsigned int mm = 0; mm < gridLength; ++mm) {
 		for (unsigned int nn = 0; nn < gridLength; ++nn) {
 			C_eze(mm, nn) = 1.0;
@@ -46,12 +48,14 @@ int main() {
 	}	
 
 	/* H-field update coefficients. */
+	#pragma omp parallel for
 	for (unsigned int mm = 0; mm < gridLength; ++mm) {
 		for (unsigned int nn = 0; nn < gridLength-1; ++nn) {
 			C_hxh(mm, nn) = 1.0;
 			C_hxe(mm, nn) = courant / fsImp;
 		}
 	}	
+	#pragma omp parallel for
 	for (unsigned int mm = 0; mm < gridLength-1; ++mm) {
 		for (unsigned int nn = 0; nn < gridLength; ++nn) {
 			C_hyh(mm, nn) = 1.0;
@@ -63,7 +67,7 @@ int main() {
 	constexpr unsigned int src_x = 500;
 	constexpr unsigned int src_y = 500;
 	constexpr unsigned int maxTime = 10000;
-	constexpr unsigned int snapshotSpacing = 100;
+	constexpr unsigned int snapshotSpacing = 10;
 
 	/* For snapshots. */
 	const static Eigen::IOFormat CSVFormat(Eigen::StreamPrecision, Eigen::DontAlignCols, ",", "\n");
@@ -71,6 +75,7 @@ int main() {
 	/* Beginning FDTD iteration scheme proper. */
 	for (unsigned int timeStep = 0; timeStep < maxTime; ++timeStep) {
 		/* Update magnetic field. */
+		#pragma omp parallel for
 		for (unsigned int mm = 0; mm < gridLength; ++mm) {
 			for (unsigned int nn = 0; nn < gridLength-1; ++nn) {
 				H_x(mm,nn) = C_hxh(mm,nn) * H_x(mm,nn) 
@@ -78,6 +83,7 @@ int main() {
 			}
 		}
 		for (unsigned int mm = 0; mm < gridLength-1; ++mm) {
+			#pragma omp parallel for
 			for (unsigned int nn = 0; nn < gridLength; ++nn) {
 				H_y(mm,nn) = C_hyh(mm,nn) * H_y(mm,nn) 
 					+ C_hye(mm,nn) * ( E_z(mm+1,nn) - E_z(mm,nn) );
@@ -98,7 +104,7 @@ int main() {
 		E_z(src_x, src_y) += sin_table_0_00001_LERP(2 * pi / WAVE_STEPS * (courant * timeStep - waveProp));
 
 		/* Take snapshot with temporal coarsening after solving. */
-		std::string outFileName = fmt::format("out/result-{}.csv", timeStep);
+		std::string outFileName = fmt::format("out/result-{:06d}.csv", timeStep);
 		if (timeStep % snapshotSpacing == 0) {
 			std::ofstream file(outFileName.c_str());
 			file << E_z.format(CSVFormat);

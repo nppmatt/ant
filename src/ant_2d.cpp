@@ -104,7 +104,7 @@ int main() {
 		E_z(src_x, src_y) += sin_table_0_00001_LERP(2 * pi / WAVE_STEPS * (courant * timeStep - waveProp));
 
 		/* Take snapshot with temporal coarsening after solving. */
-		std::string outFileName = fmt::format("out/result-{:06d}.csv", timeStep);
+		std::string outFileName = fmt::format("out/result_{:06d}.csv", timeStep);
 		if (timeStep % snapshotSpacing == 0) {
 			std::ofstream file(outFileName.c_str());
 			file << E_z.format(CSVFormat);

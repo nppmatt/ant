@@ -3,9 +3,19 @@ cc_import(
     hdrs = glob(["Eigen/**"]),
 )
 
+cc_import(
+    name = "fmt_import",
+    hdrs = glob(["fmt/*"]),
+)
+
 cc_library(
 	name = "eigen_lib",
 	deps = ["eigen_import"],
+)
+
+cc_library(
+	name = "fmt_lib",
+	deps = ["fmt_import"],
 )
 
 cc_library(
@@ -118,6 +128,18 @@ cc_binary(
     ],
     deps = [
     	":eigen_lib",
+	":ant_lib",
+    ],
+)
+
+cc_binary(
+    name = "ant_2d",
+    srcs = [
+        "src/ant_2d.cpp",
+    ],
+    deps = [
+    	":eigen_lib",
+    	":fmt_lib",
 	":ant_lib",
     ],
 )

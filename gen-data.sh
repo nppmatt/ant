@@ -22,7 +22,8 @@ select option in "${options[@]}" "cancel"; do
 			;;
 		*)
 			echo "Generating from $option"
-			./"$option" > "$OUT_DIR"/result.dat
+			#./"$option" > "$OUT_DIR"/result.dat
+			./"$option"
 			echo "Done."
 			break
 			;;

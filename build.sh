@@ -10,4 +10,5 @@ bazel build //:ant_infra_test --config=clang_conf
 bazel build //:ant_mathc_sin --config=clang_conf
 bazel build //:ant_fix_dir --config=clang_conf
 bazel build //:ant_lerp3 --config=clang_conf
+bazel build //:ant_lerp4 --config=clang_conf
 

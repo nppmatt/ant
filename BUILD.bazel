@@ -111,3 +111,14 @@ cc_binary(
     ],
 )
 
+cc_binary(
+    name = "ant_lerp4",
+    srcs = [
+        "src/ant_lerp4.cpp",
+    ],
+    deps = [
+    	":eigen_lib",
+	":ant_lib",
+    ],
+)
+

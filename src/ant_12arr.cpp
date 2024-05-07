@@ -65,7 +65,7 @@ int main() {
 
 	/* More simulation parameters. */
 	constexpr unsigned int src_x = 1022;
-	constexpr unsigned int arrayDelta = 20;
+	constexpr unsigned int arrayDelta = 16;
 
 	// center
 	constexpr unsigned int src7_y = 512;

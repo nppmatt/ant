@@ -65,27 +65,28 @@ int main() {
 
 	/* More simulation parameters. */
 	constexpr unsigned int src_x = 1022;
-	constexpr unsigned int arrayDelta = 50;
+	constexpr unsigned int arrayDelta = 22;
 
 	// center
 	constexpr unsigned int src7_y = 512;
-	constexpr unsigned int srca_y = src7_y - arrayDelta*8;
-	constexpr unsigned int src0_y = src7_y - arrayDelta*7;
-	constexpr unsigned int src1_y = src7_y - arrayDelta*6;
-	constexpr unsigned int src2_y = src7_y - arrayDelta*5;
-	constexpr unsigned int src3_y = src7_y - arrayDelta*4;
-	constexpr unsigned int src4_y = src7_y - arrayDelta*3;
-	constexpr unsigned int src5_y = src7_y - arrayDelta*2;
-	constexpr unsigned int src6_y = src7_y - arrayDelta;
 
-	constexpr unsigned int src8_y = src7_y + arrayDelta;
-	constexpr unsigned int src9_y = src7_y + arrayDelta*2;
-	constexpr unsigned int src10_y = src7_y + arrayDelta*3;
-	constexpr unsigned int src11_y = src7_y + arrayDelta*4;
-	constexpr unsigned int src12_y = src7_y + arrayDelta*5;
-	constexpr unsigned int src13_y = src7_y + arrayDelta*6;
-	constexpr unsigned int src14_y = src7_y + arrayDelta*7;
-	constexpr unsigned int src15_y = src7_y + arrayDelta*8;
+	constexpr unsigned int src6_y = src7_y - arrayDelta/2;
+	constexpr unsigned int src5_y = src6_y - arrayDelta;
+	constexpr unsigned int src4_y = src5_y - arrayDelta;
+	constexpr unsigned int src3_y = src4_y - arrayDelta;
+	constexpr unsigned int src2_y = src3_y - arrayDelta;
+	constexpr unsigned int src1_y = src2_y - arrayDelta;
+	constexpr unsigned int src0_y = src1_y - arrayDelta;
+	constexpr unsigned int srca_y = src0_y - arrayDelta;
+
+	constexpr unsigned int src8_y = src7_y + arrayDelta/2;
+	constexpr unsigned int src9_y = src8_y + arrayDelta;
+	constexpr unsigned int src10_y = src9_y + arrayDelta;
+	constexpr unsigned int src11_y = src10_y + arrayDelta;
+	constexpr unsigned int src12_y = src11_y + arrayDelta;
+	constexpr unsigned int src13_y = src12_y + arrayDelta;
+	constexpr unsigned int src14_y = src13_y + arrayDelta;
+	constexpr unsigned int src15_y = src14_y + arrayDelta;
 	constexpr unsigned int maxTime = 6000;
 	constexpr unsigned int snapshotSpacing = 10;
 

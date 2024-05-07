@@ -15,4 +15,5 @@ bazel build //:ant_2d --config=clang_conf
 bazel build //:ant_2d_bc --config=clang_conf
 bazel build //:ant_array --config=clang_conf
 bazel build //:ant_array4 --config=clang_conf
+bazel build //:ant_12arr --config=clang_conf
 

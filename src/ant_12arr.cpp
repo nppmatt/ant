@@ -66,20 +66,20 @@ int main() {
 	/* More simulation parameters. */
 	constexpr unsigned int src_x = 1022;
 
-	constexpr unsigned int src1_y = 332;
-	constexpr unsigned int src2_y = 360;
-	constexpr unsigned int src3_y = 388;
-	constexpr unsigned int src4_y = 416;
-	constexpr unsigned int src5_y = 444;
-	constexpr unsigned int src6_y = 472;
+	constexpr unsigned int src1_y = 212;
+	constexpr unsigned int src2_y = 260;
+	constexpr unsigned int src3_y = 308;
+	constexpr unsigned int src4_y = 356;
+	constexpr unsigned int src5_y = 404;
+	constexpr unsigned int src6_y = 452;
 	//constexpr unsigned int src7_y = 500;
-	constexpr unsigned int src8_y = 528;
-	constexpr unsigned int src9_y = 556;
-	constexpr unsigned int src10_y = 584;
-	constexpr unsigned int src11_y = 612;
-	constexpr unsigned int src12_y = 640;
-	constexpr unsigned int src13_y = 668;
-	constexpr unsigned int maxTime = 10000;
+	constexpr unsigned int src8_y = 548;
+	constexpr unsigned int src9_y = 596;
+	constexpr unsigned int src10_y = 644;
+	constexpr unsigned int src11_y = 692;
+	constexpr unsigned int src12_y = 740;
+	constexpr unsigned int src13_y = 788;
+	constexpr unsigned int maxTime = 6000;
 	constexpr unsigned int snapshotSpacing = 10;
 
 	/* For snapshots. */
